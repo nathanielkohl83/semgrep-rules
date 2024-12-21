@@ -40,7 +40,11 @@ rules:
       - metavariable-regex:
           metavariable: $DYNAMIC_KEY
           regex: (?!^[`][a-z0-9-]+[.][a-z0-9-]+[.]\S+$)
-  message: Translation key '$KEY' should match format 'MODULE.FEATURE.*'
+  message: >
+    Translation key '$KEY' is invalid. Keys should follow the format 'module.feature.subkey':
+    - The 'module' and 'feature' parts must use only lowercase letters (a-z) and hyphens (-).
+    - Only the 'subkey' part may include uppercase letters, underscores (_), or periods (.).
+    - Example of valid format: 'my-module.my-feature.my_key'.
   languages:
   - typescript
   - javascript
